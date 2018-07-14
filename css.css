@@ -1,0 +1,74 @@
+html {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background: white;
+}
+h2.i {
+    display: inline;
+}
+table {
+    color:gray;
+    font-size:15px;
+    text-shadow: 1px 1px 0px white;
+    background: snow;
+    margin:auto;
+    border: lightgray 1px solid;
+    border-radius:3px;
+    box-shadow: 0 1px 2px white;
+    empty-cells: show;
+    width: 90%;
+    margin: 15px;
+  }
+tbody tr:hover td{
+    text-shadow: none;
+    color: darkblue;
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+    cursor: cell;
+}
+thead {
+    background: lightgray;
+}
+td {
+    padding: 2px 10px 2px 10px;
+}
+td.t-c {
+    text-align: center;
+}
+td.swatch {
+    width: 5%;
+    padding-right: 0;
+    padding-left: 0;
+}
+td.wobble {
+  animation-name: wobble;
+  animation-duration: 250ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes wobble {
+   from { text-shadow: 1px 1px 0px white; }
+   to { text-shadow: 1px 1px 0px lightgray; }
+}
+a {
+    color: green; 
+    background-color: transparent; 
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: red;
+    text-decoration: none;
+}
+.superscript {
+    position: relative;
+    top: -0.5em;
+    font-size: 80%;
+}
+.rebecca {
+    font-weight: bold;
+    color: rebeccapurple;
+    background: seashell;
+}

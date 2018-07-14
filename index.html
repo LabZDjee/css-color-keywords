@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Colors</title>
+    <link rel="stylesheet" type="text/css" href="./css.css">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+<div id="rgbHslTable">
+ <h1>CSS Extended Color Keywords and Swatch</h1>
+  <h2 class="i">double-click on table to sort</h2> - <a href="#details">more on CSS Extended Colors</a>
+ <table>
+     <thead>
+      <td @dblclick="sortName()" :class="{wobble: sortByName}">name</td>
+      <td @dblclick="sortRgb()">hex</td>
+      <td @dblclick="sortRgb()" :class="{wobble: sortByRgb}">rgb{{ sortRgbOrderInfo }}</td>
+      <td @dblclick="sortHsl()" :class="{wobble: sortByHsl}">hsl{{ sortHlsOrderInfo }}</td>
+      <td @dblclick="sortHwb()" :class="{wobble: sortByHwb}">hwb{{ sortHwbOrderInfo }}</td>
+      <td @dblclick="sortCssLevel()" :class="{wobble: sortByClassLevel}">css level</td>
+      <td @dblclick="sortName()">from name</td>
+      <td @dblclick="sortRgb()">from hex</td>
+      <td @dblclick="sortRgb()">from rgb</td>
+      <td @dblclick="sortHsl()">from hsl</td>
+      <td @dblclick="sortHwb()">from hwb</td>
+    </thead>
+    <tbody>
+     <tr v-for="color in colorArray" :key="color.name">
+      <td @dblclick="sortName()">{{ color.name }}</td>
+      <td @dblclick="sortRgb()">{{ color.hex }}</td>
+      <td @dblclick="sortRgb()">{{ rgbAsStr(color.rgb) }}</td>
+      <td @dblclick="sortHsl()">{{ hslAsStr(color.hsl) }}</td>
+      <td @dblclick="sortHwb()">{{ hwbAsStr(color.hwb) }}</td>
+      <td @dblclick="sortCssLevel()" class="t-c">{{ color.cssLevel }}</td>
+      <td @dblclick="sortName()" :style="{'background-color': color.name}" class="swatch"></td>
+      <td @dblclick="sortRgb()" :style="{'background-color': color.hex}" class="swatch" ></td>
+      <td @dblclick="sortRgb()" :style="{'background-color': 'rgb('+rgbAsStr(color.rgb)+')'}" class="swatch"></td>
+      <td @dblclick="sortHsl()" :style="{'background-color': 'hsl('+hslAsStr(color.hsl)+')'}" class="swatch"></td>
+      <td @dblclick="sortHwb()" :style="{'background-color': 'hwb('+hwbAsStr(color.hwb)+')'}" class="swatch"></td>
+    </tr>
+  </tbody>
+ </table>
+</div>
+<hr>
+<a name="details"></a>
+<p>Colors with keywords as defined by CSS Color Modules at levels 1, 2.1, 3, and 4.</p>
+<p>At level 4 was added the<span class="rebecca"> rebeccapurple </span>keyword
+  to honor web pioneer <a href="https://meyerweb.com" target="_blank">Eric A. Meyer</a>
+  whose daughter<span class="rebecca"> Rebecca Alison </span>passed away when she was
+  six years, eleven and a half hours old, on Friday June 7<span class="superscript">th</span>, 2014.</p>
+<p>There are 139 unique colors and 9 synonyms:</p>
+ <ol>
+  <li>aqua = cyan</li>
+  <li>darkgray = darkgrey</li>
+  <li>darkslategray = darkslategrey</li>
+  <li>dimgray = dimgrey</li>
+  <li>fuchsia = magenta</li>
+  <li>gray = grey</li>
+  <li>lightgray = lightgrey</li>
+  <li>lightslategray = lightslategrey</li>
+  <li>slategray = slategrey</li>
+</ol>
+<p>This table gives information about those colors in the RGB (Red, Green, Blue), HSL (Hue, Saturation, Lightness),
+  and HWB (Hue, Whitness, Blackness) spaces. HWB seems still unsupported after many years since
+  Module Level 4 was introduced, persisting as a draft... A lack which can be addressed by Sass functions for example.
+</p>
+<p>For more on status of CSS Color Modules and details, please visit <a href="https://www.w3.org/TR/?title=color" target="_blank">W3C</a>
+(in the hope this link is still okay).</p>
+<script src="./hslRgbConv.js"></script>
+<script src="./rgbDefs.js"></script>
+<script src="./App.js"></script>
+</body>
+</html>
