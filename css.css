@@ -3,9 +3,6 @@ html {
     color: black;
     background: white;
 }
-h2.i {
-    display: inline;
-}
 table {
     color:gray;
     font-size:15px;
@@ -40,7 +37,7 @@ td.swatch {
     padding-right: 0;
     padding-left: 0;
 }
-td.wobble {
+th.wobble {
   animation-name: wobble;
   animation-duration: 250ms;
   animation-iteration-count: infinite;
